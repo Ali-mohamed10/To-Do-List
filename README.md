@@ -4,7 +4,7 @@
 
 ## Demo
 
-[View the live demo](https://adorable-sprite-02fa52.netlify.app/)
+[View the live demo](https://dazzling-genie-fa5d83.netlify.app/)
 
 A simple and modern To Do List application built with React. It supports dark mode and bilingual interface (English/Arabic).
 
