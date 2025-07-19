@@ -2,24 +2,25 @@ import { useState, useEffect } from "react";
 import Todo from "./Todo";
 import ToggleButtons from "./ToggleButtons";
 import { useTranslation } from "react-i18next";
+import { v4 as uuidv4 } from "uuid";
 
 export default function TodoList() {
   const { t, i18n } = useTranslation();
   const [array, setArray] = useState([
     {
-      id: 1,
+      id: uuidv4(),
       title: "تعلم البرمجة",
       details: "الانجاز قبل نهاية الشهر",
       completed: false,
     },
     {
-      id: 2,
+      id: uuidv4(),
       title: "العلم نور",
       details: "",
       completed: false,
     },
     {
-      id: 3,
+      id: uuidv4(),
       title: "تعلم الانجليزية",
       details: "الممارسة بأستمرار",
       completed: false,
@@ -38,9 +39,9 @@ export default function TodoList() {
   function detailsEdit(value) {
     setEdit({ ...edit, details: value });
   }
-  function checked(index) {
+  function checked(id) {
     const newArray = array.map((d, inde) => {
-      if (inde === index) {
+      if (d.id === id) {
         d.completed = !d.completed;
       }
       return d;
@@ -48,8 +49,8 @@ export default function TodoList() {
     setArray(newArray);
     window.localStorage.todos = JSON.stringify(newArray);
   }
-  function deleteItem(index) {
-    const newArray = array.filter((arr, inde) => inde !== index);
+  function deleteItem(id) {
+    const newArray = array.filter((arr, inde) => arr.id !== id);
     setArray(newArray);
     window.localStorage.todos = JSON.stringify(newArray);
   }
@@ -68,12 +69,10 @@ export default function TodoList() {
   }
   function handleAddItem() {
     if (input !== "") {
-      setArray([...array, { id: array.length + 1, title: input, detalis: "" }]);
+      const newTodo = { id: uuidv4(), title: input, detalis: "" };
+      setArray([...array, newTodo]);
       setInput("");
-      window.localStorage.todos = JSON.stringify([
-        ...array,
-        { id: array.length + 1, title: input, detalis: "" },
-      ]);
+      window.localStorage.todos = JSON.stringify([...array, newTodo]);
     }
   }
   useEffect(() => {
@@ -100,7 +99,9 @@ export default function TodoList() {
       <Todo
         key={da.id}
         todoArray={da}
-        editFunction={handleUpdateItem}
+        editFunction={() => {
+          handleUpdateItem(inde);
+        }}
         deleteFunction={deleteItem}
         checkFunction={checked}
         edit={edit}

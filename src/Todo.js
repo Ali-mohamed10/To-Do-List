@@ -46,7 +46,7 @@ export default function Todo({
       <div className="flex gap-2 items-center">
         <button
           onClick={() => {
-            indexPost = todoArray.id - 1;
+            indexPost = todoArray.id;
             checkFunction(indexPost);
           }}
           className={`w-9 h-9 flex items-center justify-center rounded-full border-2 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-300
@@ -62,9 +62,10 @@ export default function Todo({
         <button
           onClick={() => {
             setOpenUpdatePopup(true);
-            indexPost = todoArray.id - 1;
+            indexPost = todoArray.id;
           }}
-          className="w-9 h-9 flex items-center justify-center rounded-full border-2 border-blue-400 bg-white text-blue-500 hover:bg-blue-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-gray-900 dark:border-blue-700 dark:text-blue-300 dark:hover:bg-gray-800"
+          className=
+          "w-9 h-9 flex items-center justify-center rounded-full border-2 border-blue-400 bg-white text-blue-500 hover:bg-blue-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-gray-900 dark:border-blue-700 dark:text-blue-300 dark:hover:bg-gray-800"
           title={t("edit_task")}
         >
           <EditOutlinedIcon fontSize="small" />
@@ -72,7 +73,7 @@ export default function Todo({
         <button
           onClick={() => {
             handleClickOpen();
-            indexPost = todoArray.id - 1;
+            indexPost = todoArray.id;
           }}
           className="w-9 h-9 flex items-center justify-center rounded-full border-2 border-red-400 bg-white text-red-500 hover:bg-red-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-300 dark:bg-gray-900 dark:border-red-700 dark:text-red-400 dark:hover:bg-gray-800"
           title={t("delete_task")}
