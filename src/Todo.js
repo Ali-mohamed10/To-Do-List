@@ -43,7 +43,7 @@ export default function Todo({
           {todoArray.details}
         </p>
       </div>
-      <div className="flex flex-col md:flex-row gap-2 items-center">
+      <div className="flex flex-col sm:flex-row gap-2 items-center">
         <button
           onClick={() => {
             indexPost = todoArray.id;
