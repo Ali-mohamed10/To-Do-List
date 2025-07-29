@@ -21,6 +21,11 @@ const resources = {
       completed: "Completed",
       all: "All",
       reset: "Reset",
+      toastComplete: "Added To Completed",
+      toastNotComplete: "Cancel From Completed",
+      toastUpdate: "Updated The Task",
+      toastDelete: "Deleted The Task",
+      toastAdd: "Added The Task",
       // أضف المزيد من النصوص حسب الحاجة
     },
   },
@@ -43,6 +48,11 @@ const resources = {
       completed: "المنجز",
       all: "الكل",
       reset: "إعادة ضبط",
+      toastComplete: "تم الاضافة الى المنجز",
+      toastNotComplete: "تم الغاء المهمة من المنجز",
+      toastUpdate: "تم تعديل المهمة",
+      toastDelete: "تم حذف المهمة",
+      toastAdd: "تم اضافة المهمة",
       // أضف المزيد من النصوص حسب الحاجة
     },
   },
